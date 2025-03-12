@@ -1,19 +1,18 @@
 import styles from './card.module.css'
 import Image from 'next/image';
 
-export default function Productcard() {
+export default function Productcard({ venueName, imgSrc} : {venueName:string, imgSrc:string}) {
     return (
-        <div className={styles.card}>
-            <div className={styles.cardimg}>
-                <Image src={'/img/fireworks.jpg'}
+        <div className='w-1/5 h-[300px] rounded-lg shadow-lg'>
+            <div className='w-full h-[70%] relative rounded-t-lg'>
+                <Image src={imgSrc}
                 alt='Product picture'
                 fill={true}
-                objectFit='cover'/>
+                className='object-cover rounded-t-lg'/>
 
             </div>
-            <div className={styles.cardtext}>
-                <h4>Firework Festival</h4>
-                Celebration of spectacular pyrotechnic displays.
+            <div className='w-full h-[30%] p-[20px]'>
+                {venueName}
             </div>
         </div>
     );
